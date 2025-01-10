@@ -1,0 +1,169 @@
+/* General styles */
+body {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-image: url(../jpg/retoque_.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%; /* Asegura que el body ocupe toda la altura */
+    
+}
+
+/* Contenedor principal */
+.contenedor {
+    width: 100%;
+    min-width: 300px;
+    margin-top: 0;
+    height: auto;
+    display: flex; /* Activa flexbox */
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    min-height: 95vh; /* Hace que el contenedor principal ocupe toda la altura */
+}
+
+/* Logo completamente a la izquierda */
+#logo {
+    position: fixed; /* Fijo en la pantalla */
+    top: 20px; /* Ajusta la posición vertical del logo */
+    left: 20px; /* Mueve el logo al extremo izquierdo */
+    width: 80px; /* Tamaño del logo */
+    height: 80px; /* Altura del logo */
+    background-image: url('../jpg/logo\ negro\ .png'); /* Ruta del logo negro */
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease; /* Animación suave para el cambio */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Cambia a amarillo al pasar el ratón */
+#logo:hover {
+    background-image: url('../jpg/logo\ en\ amarillo.png'); /* Ruta del logo amarillo */
+}
+
+/* Cambia a azul al presionar */
+#logo:active {
+    background-image: url('../jpg/logo\ azul.png'); /* Ruta del logo azul */
+}
+
+#logo a {
+    display: block; /* Hace que el enlace sea un bloque */
+    width: 100%;
+    height: 100%;
+}
+
+/* Contenedor del menú */
+.menu-container {
+    position: fixed;
+    top: 20px; /* Ajusta la posición vertical */
+    right: 20px; /* Ajusta la posición horizontal al borde derecho */
+    z-index: 120; /* Por encima del contenido principal */
+}
+
+/* Ocultar checkbox del menú */
+.menu-toggle {
+    display: none;
+}
+
+/* Botón de menú (etiqueta) */
+.menu-label {
+    font-family: "Raleway", Arial, sans-serif; /* Fuente */
+    font-size: 18px; /* Tamaño de texto */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    color: black; /* Color inicial del texto */
+    text-align: right; /* Alinea el texto a la derecha */
+    user-select: none; /* Evita selección del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: transparent; /* Fondo transparente */
+    position: fixed; /* Fijo en la parte superior derecha */
+    top: 20px;
+    right: 20px;
+    transition: color 0.3s ease; /* Transición suave del color */
+}
+
+.menu-label:hover {
+    color: #FCE41E; /* Cambia a amarillo al pasar el ratón */
+}
+
+/* Menú desplegable (contenedor) */
+.menu-content {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Inicialmente oculto */
+    width: 120px; /* Ajusta el ancho del menú para el texto */
+    height: 89.3%; /* Ocupa toda la altura del viewport */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con opacidad */
+    transition: right 0.3s ease; /* Animación para la apertura del menú */
+    z-index: 110; /* Debajo de la etiqueta "MENU" */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Mostrar el menú al pasar el cursor */
+.menu-container:hover .menu-content {
+    right: 0; /* El menú aparece desde la derecha */
+}
+
+/* Opciones del menú */
+.menu-content ul {
+    list-style: none; /* Sin viñetas */
+    margin: 0;
+    padding: 50px 0 0 0; /* Espaciado superior para centrar los elementos */
+    display: flex;
+    flex-direction: column; /* Organización vertical */
+    gap: 20px; /* Espaciado entre elementos */
+}
+
+.menu-content li {
+    text-align: left; /* Alineación a la izquierda */
+    
+}
+
+.menu-content a {
+    font-family: "Raleway", Arial, sans-serif; /* Fuente */
+    font-size: 17px; /* Tamaño de texto */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 20px; /* Espaciado interno */
+    display: block; /* Cada enlace ocupa toda la fila */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Animación al pasar el ratón */
+}
+
+.menu-content a:hover {
+    color: #FCE41E; /* Cambia a amarillo al pasar el ratón */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+}
+
+
+
+#texto-container {
+    position: absolute; /* Posición personalizada */
+    top: 50%; /* Baja el texto al 50% de la altura de la pantalla */
+    right: 13%; /* Mueve el texto hacia la derecha inicialmente */
+    transform: translateY(-50%); /* Posición inicial centrada verticalmente */
+    font-family: "Raleway", Arial, sans-serif; /* Estilo de fuente */
+    font-size: 40px; /* Tamaño del texto */
+    color: #000; /* Color del texto */
+    text-align: right; /* Alinea el texto a la derecha */
+    line-height: 1.5; /* Espaciado entre líneas */
+    transition: transform 0.5s ease; /* Movimiento suave y rápido */
+    will-change: transform; /* Mejora el rendimiento */
+}
+
+#texto-container:hover {
+    transform: translate(-100px, -50%); /* Mueve el texto 100px hacia la izquierda */
+}
+
+footer {
+    /* Footer ajustado */
+    margin-top: auto; /* Asegura que el footer se quede abajo */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con algo de transparencia */
+    color: white; /* Texto blanco */
+    padding: 5px; /* Espaciado dentro del footer */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar la caja */
+    max-width: 100%; /* Asegura que no exceda el ancho de la página */
+}

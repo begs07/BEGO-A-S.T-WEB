@@ -1,0 +1,340 @@
+/* General styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Asegura que ocupen toda la altura del viewport */
+    display: flex;
+    flex-direction: column; /* Diseño en columna */
+}
+
+body  {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-image: url(../jpg/fondo\ clarisimo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+        
+    }
+
+/* Contenedor principal */
+.contenedor {
+    flex: 1; /* Permite que el contenido principal crezca para llenar el espacio restante */
+    display: flex;
+    flex-direction: column; /* Organización vertical */
+}
+
+
+
+/* Logo completamente a la izquierda */
+/* Logo */
+#logo {
+    position: fixed; /* Fija el logo en la pantalla */
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background-image: url('../jpg/logo\ negro\ .png'); /* Ruta del logo */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1000; /* Asegura que el logo esté siempre encima */
+    transition: background-image 0.3s ease;
+    cursor: pointer;
+}
+
+#logo:hover {
+    background-image: url('../jpg/logo\ en\ amarillo.png'); /* Cambio del logo en hover */
+}
+
+#logo:active {
+    background-image: url('..//jpg/logo\ azul.png'); /* Ruta del logo en active */
+}
+
+#logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo para la sección general */
+.section {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    z-index: 1; /* Asegura que las secciones estén detrás del logo */
+}
+
+/* Imagen dentro de la sección */
+.section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+    transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Overlay: capa negra transparente para hover */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo negro semi-transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Oculto inicialmente */
+    z-index: 2; /* Asegura que esté sobre la imagen */
+    transition: opacity 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Texto dentro del overlay */
+.overlay-text {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0; /* Oculto inicialmente */
+    transition: opacity 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Efecto hover: la imagen se oscurece y el texto aparece */
+.section:hover img {
+    transform: scale(1.1); /* Zoom suave en la imagen */
+    filter: brightness(50%); /* Oscurece la imagen */
+}
+
+.section:hover .overlay {
+    opacity: 1; /* Muestra la capa negra transparente */
+}
+
+.section:hover .overlay-text {
+    opacity: 1; /* Muestra el texto */
+}
+
+
+/* Menú desplegable */
+.menu-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 110; /* Asegura que la barra de menú esté delante del logo y del contenido */
+}
+
+.menu-label {
+    font-family: "Raleway", Arial, sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    color: black;
+    text-align: right;
+    user-select: none;
+    padding: 10px 20px;
+    background-color: transparent;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 110; /* Mantiene el botón del menú delante del resto */
+    transition: color 0.3s ease;
+}
+
+.menu-label:hover {
+    color: #FCE41E;
+}
+
+.menu-content {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 200px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: right 0.3s ease;
+    z-index: 110; /* Asegura que el menú completo esté al frente */
+    padding: 20px;
+}
+
+
+.menu-container:hover .menu-content {
+    right: 0;
+}
+
+.menu-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 50px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-content li {
+    text-align: left;
+}
+
+.menu-content a {
+    font-family: "Raleway", Arial, sans-serif;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-content a:hover {
+    color: #FCE41E;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajuste para las imágenes de las secciones */
+.section {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    z-index: 1; /* Las secciones están detrás del menú */
+}
+
+.section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0; /* Las imágenes están detrás del texto y el menú */
+}
+
+
+/* General styles for the 2x2 grid layout */
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mantén las dos columnas */
+    grid-template-rows: repeat(2, 1fr); /* Mantén las dos filas */
+    gap: 10px; /* Espaciado entre elementos */
+    margin: 0; /* Sin márgenes */
+    padding: 0; /* Sin padding */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    height: calc(100vh - 50px); /* Reduce la altura total del viewport menos el tamaño del footer */
+    box-sizing: border-box;
+}
+
+/* Each section in the grid */
+.section {
+    position: relative;
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo de las imágenes */
+.section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la imagen llena */
+    position: absolute;
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+   
+    z-index: 0; /* Detrás del texto */
+}
+
+
+/* Contenedor de texto (general para todas las secciones) */
+.text-container {
+    position: absolute;
+    z-index: 2;
+    color: black;
+    text-align: left;
+    padding: 10px;
+}
+
+
+img[src="../jpg/4.png"] {
+    width: 800px; /* Fija un ancho de 300 píxeles */
+    height: auto; /* Ajusta la altura automáticamente */
+    position: relative;
+    transform: translateY(30px);
+}
+
+
+
+/* Estilo para la imagen base */
+img[src="../jpg/fin 3.png"] {
+    width: 800px; /* Cambia el tamaño según lo que desees */
+    height: auto; /* Mantiene las proporciones */
+    position: relative; /* Permite ajustar la posición */
+    transition: transform 0.3s ease; /* Transición suave para el movimiento */
+    transform: translateY(-50px);
+    
+}
+
+/* Hover: Cuando se pasa el ratón por la sección, la imagen sube */
+.section:hover img[src="../jpg/fin 3.png"] {
+    transform: translateY(-80px); /* Mueve la imagen hacia arriba */
+}
+
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+/* Estilo base para los textos */
+.overlay-link, .overlay-text {
+    font-weight: 400; /* Peso normal */
+    color: white; /* Blanco por defecto */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 24px; /* Tamaño del texto */
+    text-align: center;
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Hover: Cambia a amarillo cuando el ratón esté encima */
+.overlay-link:hover, .overlay-text:hover {
+    color: yellow; /* Cambia a amarillo al pasar el ratón */
+}
+
+/* Active: Cambia a azul mientras se presiona */
+.overlay-link:active, .overlay-text:active {
+    color: blue; /* Cambia a azul mientras se presiona */
+}
+
+/* Footer */
+footer {
+   
+    margin-top: 20px; /* Baja el footer más abajo */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con algo de transparencia */
+    color: white; /* Texto blanco */
+    padding: 5px; /* Espaciado dentro del footer */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar el footer */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    position: relative; /* Mantén el footer en el flujo del documento */
+}
+
+#menu-toggle {
+    display: none; /* Oculta el checkbox */
+}

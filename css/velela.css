@@ -1,0 +1,375 @@
+/* General styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Mantén la altura de toda la página */
+    display: flex;
+    flex-direction: column;
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    background-image: url(../jpg/fondo\ general.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Contenedor principal */
+.contenedor {
+    flex: 1; /* El contenido principal ocupa el espacio restante */
+    display: flex;
+    flex-direction: column; /* Organiza en columna */
+}
+
+/* Logo completamente a la izquierda */
+#logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background-image: url('../jpg/logo\ negro\ .png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: background-image 0.3s ease;
+    z-index: 100; /* Asegura que el logo esté por delante de otros elementos */
+}
+
+#logo:hover {
+    background-image: url('../jpg/logo\ en\ amarillo.png');
+}
+
+#logo:active {
+    background-image: url('../jpg/logo\ azul.png');
+}
+
+#logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Menú desplegable */
+
+/* Contenedor del menú */
+.menu-container {
+    position: fixed;
+    top: 20px; /* Ajusta la posición vertical */
+    right: 20px; /* Ajusta la posición horizontal al borde derecho */
+    z-index: 120; /* Por encima del contenido principal */
+}
+
+/* Ocultar checkbox del menú */
+.menu-toggle {
+    display: none;
+}
+
+/* Botón de menú (etiqueta) */
+.menu-label {
+    font-family: "Raleway", Arial, sans-serif; /* Fuente */
+    font-size: 18px; /* Tamaño de texto */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    color: black; /* Color inicial del texto */
+    text-align: right; /* Alinea el texto a la derecha */
+    user-select: none; /* Evita selección del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: transparent; /* Fondo transparente */
+    position: fixed; /* Fijo en la parte superior derecha */
+    top: 20px;
+    right: 20px;
+    transition: color 0.3s ease; /* Transición suave del color */
+}
+
+.menu-label:hover {
+    color: #FCE41E; /* Cambia a amarillo al pasar el ratón */
+}
+
+/* Menú desplegable (contenedor) */
+.menu-content {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Inicialmente oculto */
+    width: 120px; /* Ajusta el ancho del menú para el texto */
+    height: 100%; /* Ocupa toda la altura del viewport */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con opacidad */
+    transition: right 0.3s ease; /* Animación para la apertura del menú */
+    z-index: 110; /* Debajo de la etiqueta "MENU" */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Mostrar el menú al pasar el cursor */
+.menu-container:hover .menu-content {
+    right: 0; /* El menú aparece desde la derecha */
+}
+
+/* Opciones del menú */
+.menu-content ul {
+    list-style: none; /* Sin viñetas */
+    margin: 0;
+    padding: 50px 0 0 0; /* Espaciado superior para centrar los elementos */
+    display: flex;
+    flex-direction: column; /* Organización vertical */
+    gap: 20px; /* Espaciado entre elementos */
+}
+
+.menu-content li {
+    text-align: left; /* Alineación a la izquierda */
+    
+}
+
+.menu-content a {
+    font-family: "Raleway", Arial, sans-serif; /* Fuente */
+    font-size: 17px; /* Tamaño de texto */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 20px; /* Espaciado interno */
+    display: block; /* Cada enlace ocupa toda la fila */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Animación al pasar el ratón */
+}
+
+.menu-content a:hover {
+    color: #FCE41E; /* Cambia a amarillo al pasar el ratón */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+}
+
+
+
+.menu-content a:hover {
+    color: #FCE41E;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Contenedor de la imagen */
+.box-caja1 img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio del contenedor sin deformarse */
+    display: block;
+    position: relative;
+    margin-top: 0; /* Elimina el margen superior */
+    margin-bottom: 0; /* Elimina el margen inferior */
+    margin-bottom: 20px;  /* Espacio entre la primera y la segunda imagen */
+}
+
+/* Estilo para la imagen dentro del contenedor */
+.box-caja img {
+    width: 300px; /* Ajusta el ancho a un valor fijo */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover;
+    display: block;
+    position: relative;
+}
+
+
+/* Texto superpuesto */
+.text-overlay {
+    position: absolute; /* Superpone el texto sobre la imagen */
+    right: 0%; /* Lleva el texto completamente a la derecha */
+    top: 100%; /* Aumenté el valor de top para mover el texto más hacia abajo */
+    transform: translateY(-50%); /* Ajusta para centrar perfectamente */
+    padding: 20px; /* Espaciado interno */
+    max-width: 35%; /* Limita el ancho del texto */
+    text-align: right; /* Alineación del texto */
+    margin-top: 0; /* Elimina margen superior conflictivo */
+    left: auto; /* Desactiva cualquier margen a la izquierda */
+    z-index: 10; /* Asegura visibilidad */
+}
+
+/* Estilo para el título en el texto superpuesto */
+.text-overlay h1 {
+    margin: 0;
+    font-size: 2rem; /* Tamaño del título */
+    font-family: "Raleway", Arial, sans-serif;
+    text-align: right; /* Alinea el título hacia la derecha */
+}
+
+/* Estilo para los párrafos en el texto superpuesto */
+.text-overlay p {
+    margin-top: 10px; /* Espaciado superior del párrafo respecto al encabezado */
+    font-size: 1rem; /* Tamaño del párrafo */
+    font-family: "Raleway", Arial, sans-serif;
+    text-align: justify; /* Justifica el texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+
+/* Contenedor de la caja de imagen */
+.box-container {
+    flex: 1; /* Hace que la caja ocupe todo el espacio disponible */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    position: relative;
+}
+
+.box-container img {
+    max-width: 100%;  /* Limita el ancho máximo de la imagen al 80% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin deformarse */
+    display: block;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Contenedor del texto */
+.text-container {
+    position: absolute; /* Permite mover el contenedor de texto */
+    top: 80%;
+    left: 5%;
+    right: 10%;
+    transform: translate(-5%);
+    padding: 20px;
+    max-width: 60%;
+    text-align: justify;
+    z-index: 10;
+}
+
+/* Alineación de los párrafos dentro del texto */
+.text-container p {
+    font-size: 1rem; /* Tamaño del párrafo */
+    font-family: "Raleway", Arial, sans-serif;
+    text-align: left; /* Alinea el texto a la izquierda */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+/* Estilo del contenedor del texto */
+/* Contenedor de la imagen */
+.explicacion {
+    position: relative; /* Necesario para posicionar el texto encima */
+    display: flex;
+    justify-content: center; /* Centra la imagen */
+    align-items: center; /* Centra la imagen */
+    margin-top: 30px; /* Ajusta el espacio superior si es necesario */
+}
+
+/* Estilo de la imagen dentro del contenedor */
+.explicacion img {
+    width: 100%; /* O ajusta el tamaño de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+}
+
+/* Estilo del texto */
+.explicacion-texto {
+    position: absolute; /* Coloca el texto encima de la imagen */
+    top: 90%; /* Mueve el texto desde la parte superior de la imagen */
+    left: 50%; /* Centra el texto horizontalmente */
+    transform: translateX(-50%); /* Centra el texto */
+    text-align: center; /* Centra el texto */
+    color: white; /* Cambia el color del texto si es necesario */
+    width: 80%; /* Ajusta el ancho del texto */
+    z-index: 10; /* Asegura que el texto esté por encima de la imagen */
+}
+
+/* Estilo para el párrafo dentro del texto */
+.explicacion-texto p {
+    font-size: 1.2rem; /* Tamaño del texto */
+    font-family: "Raleway", Arial, sans-serif;
+    line-height: 1.6; /* Ajusta el espacio entre líneas */
+    color: white; /* Asegura que el texto sea legible sobre la imagen */
+}
+
+
+.explicacion img {
+    transform: translateY(-5px); /* Mueve la imagen hacia arriba */
+}
+
+.chica-durmiendo img {
+    margin-top: 20px; /* Añade espacio encima de la siguiente imagen */
+}
+
+.niños-jugando img {
+   
+    margin-top: 20px; /* Añade un espacio de 30px arriba de la imagen */
+}
+
+
+
+
+/* Estilo del footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Espaciado dentro del footer */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    position: relative; /* Mantiene el footer en el flujo del documento */
+    margin-top: auto; /* Asegura que el footer se quede al fondo de la página */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo del texto */
+.reme-cajatexto {
+    position: absolute; /* Superpone el texto sobre la imagen */
+    top: 900px; /* Mueve el texto 50px hacia arriba (ajusta este valor según sea necesario) */
+    left: 1020px; /* Ajusta la posición horizontal del texto (puedes modificar este valor) */
+    z-index: 10; /* Asegura que el texto esté por encima de la imagen */
+    text-align: left; /* Alineación del texto */
+    font-size: 1rem; /* Ajusta el tamaño de la fuente */
+    line-height: 1.6; /* Ajusta el espacio entre las líneas */
+    width: 30%; /* Hace que el contenedor del texto sea más estrecho */
+    padding: 10px; /* Añade espacio alrededor del texto */
+   
+}
+
+
+/* Estilo para los párrafos en el texto superpuesto */
+.reme-cajatexto p {
+    margin-top: 10px; /* Espaciado superior del párrafo respecto al encabezado */
+    font-size: 1rem; /* Tamaño del párrafo */
+    font-family: "Raleway", Arial, sans-serif;
+    text-align: justify; /* Justifica el texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+.reme-render {
+    margin-top: 20px; /* Añade espacio superior entre la última imagen y cualquier otro contenido */
+}
+
+.reme-final {
+    /* Asegura que la imagen ocupe todo el contenedor */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Espacio por encima de la segunda imagen */
+.reme-final:nth-child(2) {
+    margin-top: 17px; /* Añade espacio de 40px por encima de la segunda imagen */
+}
+
+
+
+
+.menu-toggle {
+    display: none; /* Oculta completamente la caja del checkbox */
+}
+
+/* Footer */
+footer {
+   
+        margin-top: 20px; /* Baja el footer más abajo */
+        background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con algo de transparencia */
+        color: white; /* Texto blanco */
+        padding: 5px; /* Espaciado dentro del footer */
+        text-align: center; /* Centra el texto */
+        box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar el footer */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        position: relative; /* Mantén el footer en el flujo del documento */
+    }

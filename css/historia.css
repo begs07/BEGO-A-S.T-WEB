@@ -1,0 +1,96 @@
+/* General styles */
+body {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-image: url(../jpg/color\ fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contenedor {
+    width: 100%;
+    min-width: 300px;
+    margin-top: 0;
+    height: auto;
+}
+
+/* Navbar */
+#navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    padding: 10px 0; /* Usa padding en lugar de height */
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: padding 0.3s ease, background-color 0.3s ease;
+    z-index: 100;
+}
+
+/* Barra cuando se activa el hover */
+#navbar:hover {
+    padding: 20px 0; /* Incrementa el padding */
+    background-color: black; /* Barra negra */
+}
+
+/* Logo */
+#navbar a img {
+        width: 100%; /* Asegura que el ancho ocupe el 100% del contenedor */
+        height: 100%; /* Ocupará todo el alto del contenedor */
+        object-fit: contain; /* Ajusta la imagen dentro del contenedor sin deformarla */
+        max-width: 70px; /* Si quieres limitar el tamaño máximo */
+        max-height: 70px; /* Tamaño máximo de la imagen */
+        content: url(../jpg/logo\ negro\ .png); /* Cambia al logo blanco */
+        margin-left:  -450px;
+    }
+  
+
+
+/* Logo blanco cuando la barra de navegación es negra (por hover) */
+#navbar:hover a img {
+    content: url(../jpg/ST\ LOGO\ BLANCO.png); /* Cambia al logo blanco */
+}
+
+/* Logo amarillo cuando el ratón pasa sobre el logo */
+#navbar a img:hover {
+    content: url(../jpg/logo\ en\ amarillo.png); /* Cambia al logo amarillo */
+}
+
+/* Logo azul cuando se presiona */
+#navbar a img:active {
+    content: url(../jpg/logo\ azul.png); /* Cambia al logo azul cuando se presiona */
+}
+
+/* Menú */
+#navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar ul li {
+    display: inline-block;
+}
+
+#navbar ul li a {
+    color: black;
+    text-decoration: none;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+#navbar:hover ul li a {
+    color: white;
+}
+
+#navbar ul li a:hover {
+    color: #FCE41E;
+    text-decoration: underline;
+}
